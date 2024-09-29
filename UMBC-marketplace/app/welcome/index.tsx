@@ -21,9 +21,9 @@ const RegisterScreen = () => {
             <Text className='color-black text-center text-center font-semibold'>Your Campus, Your Community — Where Retrievers buy, sell, and connect!</Text>
           </View>
           <View>
-            <UMBCButton onPress={() => router.push('/signup/email')}>Sign up with email</UMBCButton>
-            <Text className='text-gray-600 text-center mt-10'>Already have an account?</Text>
-            <UMBCButton onPress={() => router.replace('/home')}>Login with email</UMBCButton>
+            <UMBCButton onPress={() => router.replace('/home')}>Log in with email</UMBCButton>
+            <Text className='text-gray-600 text-center mt-10'>New Here? Create an Account!</Text>
+            <UMBCButton onPress={() => router.push('/signup/email')} buttonStyle={UMBCButtonStyles.secondaryButton}>Sign up with email</UMBCButton>
           </View>
           <View>
             <Text className='text-center'>By continuing, you agree to our

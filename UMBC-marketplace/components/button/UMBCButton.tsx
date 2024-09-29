@@ -12,7 +12,7 @@ type UMBCButtonProps = {
 export function UMBCButton({ children, buttonStyle, textStyle, onPress}: UMBCButtonProps){
   return (
     <TouchableOpacity onPress={onPress} style={[styles.primaryButton, buttonStyle]} className='bg-black rounded-md m-2'>
-        <Text style={[GlobalTheme.fontStyle.default, textStyle]} className='font-semibold mt-3 mb-3 ml-20 mr-20 text-center'>{children}</Text>
+        <Text style={[GlobalTheme.fontStyle.default, textStyle]} className='font-semibold mt-3 mb-3 px-4 text-center w-full'>{children}</Text>
     </TouchableOpacity>
   )
 }
@@ -22,8 +22,8 @@ export const styles = StyleSheet.create({
     backgroundColor: GlobalTheme.colors.primary
   },
   secondaryButton: {
-    // backgroundColor: GlobalTheme.colors.background,
-    backgroundColor: GlobalTheme.colors.primaryOther,
-    // borderWidth: 3,
+    backgroundColor: 'rgba(0, 0, 0, 0)',
+    borderColor: GlobalTheme.colors.primary,
+    borderWidth: 2,
   },
 });

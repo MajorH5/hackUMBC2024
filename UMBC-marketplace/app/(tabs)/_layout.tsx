@@ -1,12 +1,16 @@
 import { Tabs } from 'expo-router';
-import React from 'react';
+import { useEffect } from 'react';
 
 import { TabBarIcon } from '@/components/navigation/TabBarIcon';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
+import { useNavigation } from 'expo-router';
+
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
+  const navigation = useNavigation();
+
+  useEffect(() => {
+    navigation.setOptions({ headerShown: false, title: '' })
+  }, [navigation]);
 
   return (
     <Tabs

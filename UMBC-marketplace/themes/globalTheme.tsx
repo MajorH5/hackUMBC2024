@@ -10,6 +10,7 @@ export default {
 
     fontStyle: {
         default: {
+            minWidth: 270,
             color: '#222222'
         },
         light: {

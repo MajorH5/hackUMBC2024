@@ -1,18 +1,24 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, Image, TouchableOpacity, ImageURISource, ImageBackground } from "react-native";
 import { TabBarIcon } from "./navigation/TabBarIcon";
-import { useState } from "react";
+import { useState  } from "react";
+import { router } from "expo-router";
 
-export default function ProductListing() {
+type ProductListingProps = {
+    image: ImageURISource,
+    price: string
+}
+
+export default function ProductListing({ image, price }: ProductListingProps) {
     const [isFavorited, setIsFavorited] = useState(false);
 
     return (
-        <View style={styles.listingCell}>
-            <TouchableOpacity onPress={() => setIsFavorited(!isFavorited)}>
-                <TabBarIcon style={styles.heartIcon} name={isFavorited ? "heart" : "heart-outline"}></TabBarIcon>
-            </TouchableOpacity>
-            <Text className='text-gray-100 absolute bottom-0 mb-2 ml-2 text-md font-bold'>$420.69</Text>
-            <Image className="w-full h-full" source={require("@/assets/images/paw.png")} />
-        </View>
+        <TouchableOpacity activeOpacity={1} onPress={() => router.push('/listing/2')} style={styles.listingCell}>
+            <ImageBackground className="w-full h-full" source={image} />
+            {/* <TouchableOpacity onPress={() => setIsFavorited(!isFavorited)}> */}
+                <TabBarIcon style={styles.heartIcon} color='white' name={isFavorited ? "heart" : "heart-outline"}></TabBarIcon>
+            {/* </TouchableOpacity> */}
+            <Text className='text-gray-100 absolute bottom-0 mb-2 ml-2 text-md font-bold'>{price}</Text>
+        </TouchableOpacity>
     );
 }
 
