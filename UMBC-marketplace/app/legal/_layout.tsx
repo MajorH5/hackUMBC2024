@@ -1,15 +1,19 @@
-import { Stack } from "expo-router";
 import React from "react";
-import { View } from "react-native";
+import { View, ScrollView, Text } from "react-native";
+import { Slot, useNavigation } from "expo-router";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { useEffect } from "react";
 
-type LayoutProps = {
-    children: React.ReactNode
-}
+export default function LegalLayout() {
+    const navigation = useNavigation();
 
-export default function LegalLayout ({ children }: LayoutProps) {
+    useEffect(() => {
+        navigation.setOptions({ headerShown: false });
+    }, [navigation]);
+
     return (
-        <View className='w-full h-full bg-white'>
-            {children}
-        </View>
+        <SafeAreaView className="mx-5 mt-10">
+            <Slot/>
+        </SafeAreaView>
     );
 }

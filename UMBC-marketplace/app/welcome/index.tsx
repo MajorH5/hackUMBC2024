@@ -1,10 +1,16 @@
 import { StyleSheet, Text, ImageBackground, Image, View } from 'react-native'
-import { Link, router } from 'expo-router'
-import React from 'react'
+import { Link, router, useNavigation } from 'expo-router'
+import React, { useEffect } from 'react'
 import { UMBCButton, styles as UMBCButtonStyles } from '@/components/button/UMBCButton'
 import GlobalTheme from '@/themes/globalTheme'
 
 const RegisterScreen = () => {
+  const navigation = useNavigation();
+
+  useEffect(() => {
+    navigation.setOptions({ headerShown: false, title: '' });
+  }, [navigation]);
+
   return (
     <ImageBackground className="absolute w-full h-full" resizeMode="repeat" source={require("@/assets/images/tile.png")}>
       <View style={styles.container} className='w-full h-full flex-1 justify-center items-center'>
@@ -17,7 +23,7 @@ const RegisterScreen = () => {
           <View>
             <UMBCButton onPress={() => router.push('/signup/email')}>Sign up with email</UMBCButton>
             <Text className='text-gray-600 text-center mt-10'>Already have an account?</Text>
-            <UMBCButton onPress={() => router.push('/login')}>Login with email</UMBCButton>
+            <UMBCButton onPress={() => router.replace('/home')}>Login with email</UMBCButton>
           </View>
           <View>
             <Text className='text-center'>By continuing, you agree to our

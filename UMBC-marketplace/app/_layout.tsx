@@ -28,18 +28,19 @@ export default function RootLayout() {
   }
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+    <ThemeProvider value={DefaultTheme}>
       <Stack
+        initialRouteName='welcome'
         screenOptions={{
-          headerShown: false,
           headerStyle: {
             backgroundColor: '#ffffff',
           },
           headerTintColor: '#000000'
         }}>
+        <Stack.Screen name="welcome" />
         {/* <Stack.Screen name="(tabs)" /> */}
-        {/* <Stack.Screen name="email" /> */}
-        <Stack.Screen name="+not-found" />
+        {/* <Stack.Screen name="index" /> */}
+        {/* <Stack.Screen name="+not-found" /> */}
       </Stack>
     </ThemeProvider>
   );
